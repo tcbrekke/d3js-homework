@@ -59,21 +59,22 @@ d3.csv("stateHealthFactors.csv").then(function(rawData) {
   		.attr("cy", entry => yLinearScale(entry.diabetesYes))
   		.attr("r", 4)
   		.attr("fill", "purple")
-  		.attr("opacity", ".5");
+  		.attr("opacity", "0.5");
 
   	chartGroup.append("text")
-	    .attr("transform", "rotate(-90)")
-	    .attr("y", 0 - margin.left + 0)
-	    .attr("x", 0 - (svgHeight / 1.35))
+	    .attr("text-anchor", "middle") 
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+	    .attr("x", 0 - (chartHeight / 2))
 	    .attr("dy", "1em")
 	    .attr("class", "axisText")
 	    .text("Percentage of Population Diagnosed with Diabetes");
 
 	chartGroup.append("text")
-    	.attr("transform", `translate(${svgWidth / 2}, ${svgHeight + margin.top + 30})`)
-    	.attr("class", "axisText")
+    	.attr("text-anchor", "middle")  
+        .attr("transform", `translate(${chartWidth / 2}, ${chartHeight + margin.top - 10})`)
+        .attr("class", "axisText")
     	.text("Population Living Below Poverty Line");
-
 	});
 });
 
